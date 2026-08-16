@@ -11,12 +11,15 @@ const MAX_MEAT: int = 9999
 const BASE_HEALTH: int = 100
 var current_base_health: int = BASE_HEALTH
 
+var active_buildings: int = 0
+var total_score: int = 0
+
 # --- Signals ---
 signal gold_changed(new_amount: int)
 signal meat_changed(new_amount: int)
 signal base_health_changed(new_amount: int)
 signal wave_changed(new_wave: int)
-signal game_over()
+signal game_over(final_score: int)
 
 # --- Functions ---
 
@@ -26,6 +29,15 @@ func _ready() -> void:
 	meat_changed.emit(current_meat)
 	base_health_changed.emit(current_base_health)
 	wave_changed.emit(current_wave)
+
+func register_building() -> void:
+	active_buildings += 1
+
+func building_destroyed() -> void:
+	active_buildings -= 1
+	if active_buildings <= 0:
+		total_score = current_gold + (current_wave * 100)
+		game_over.emit(total_score)
 
 func add_gold(amount: int) -> void:
 	# Adds gold to the player's pool (clamped to MAX_GOLD).
@@ -50,12 +62,3 @@ func spend_meat(amount: int) -> bool:
 		meat_changed.emit(current_meat)
 		return true
 	return false
-
-func take_base_damage(amount: int) -> void:
-	# Deducts health from the central base.
-	current_base_health -= amount
-	base_health_changed.emit(current_base_health)
-	
-	# Triggers game over if current_base_health <= 0.
-	if current_base_health <= 0:
-		game_over.emit()

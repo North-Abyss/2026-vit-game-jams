@@ -7,8 +7,9 @@
 
 [node name="TopHUD" type="Control" unique_id=1235782483]
 layout_mode = 3
+offset_top = 1.0
 offset_right = 960.0
-offset_bottom = 128.0
+offset_bottom = 129.0
 script = ExtResource("1_waf8p")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=2121797981]

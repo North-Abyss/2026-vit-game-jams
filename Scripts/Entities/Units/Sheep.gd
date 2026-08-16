@@ -37,7 +37,7 @@ func _process(delta: float) -> void:
 		
 		if sprite:
 			if sprite.sprite_frames.has_animation("move"): sprite.play("move")
-			sprite.flip_h = direction.x > 0 # Sheep faces right by default? Flip if needed
+			sprite.flip_h = direction.x < 0 # Flip if moving left
 	else:
 		if sprite:
 			if current_state == State.EAT and sprite.sprite_frames.has_animation("grass"):
@@ -61,7 +61,7 @@ func _pick_new_state() -> void:
 func _on_state_timer_timeout() -> void:
 	_pick_new_state()
 
-func harvest(damage: int) -> void:
+func harvest(_damage: int) -> void:
 	# Called by Pawns when they attack the sheep
 	current_health -= 1 # 1 hit per attack
 	GameManager.add_meat(meat_yield)

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ba180w43npai4"]
 
-[ext_resource type="Texture2D" uid="uid://b1w7yy5uuh2f4" path="res://Assets/Characters/Enemies/goblins/Torch_Blue.png" id="1_5nsm2"]
+[ext_resource type="Texture2D" uid="uid://b1w7yy5uuh2f4" path="res://assects/Characters/Enemies/goblins/Torch_Blue.png" id="1_5nsm2"]
 [ext_resource type="Script" uid="uid://dd88r14yw62ec" path="res://Scripts/Entities/Units/BaseUnit.gd" id="1_ywyx3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_02ycf"]
@@ -262,6 +262,7 @@ size = Vector2(25, 52.5)
 [node name="gobline" type="CharacterBody2D" unique_id=1914979527]
 texture_filter = 1
 script = ExtResource("1_ywyx3")
+is_enemy = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=416571133]
 position = Vector2(0, -22)

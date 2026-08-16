@@ -5,7 +5,7 @@ class_name BaseUnit
 signal died()
 
 # --- Enums & State ---
-enum UnitState { IDLE, RUN, ATTACK, FARM }
+enum UnitState { IDLE, RUN, ATTACK, FARM, DEATH }
 var current_state: UnitState = UnitState.IDLE
 
 # --- Magic Numbers & Variables ---
@@ -69,12 +69,29 @@ func _ready() -> void:
 				break
 
 func _physics_process(_delta: float) -> void:
+	if current_state == UnitState.DEATH:
+		return
+		
 	find_target()
 	
 	if target and is_instance_valid(target):
 		nav_agent.target_position = target.global_position
 		
-		if not nav_agent.is_navigation_finished():
+		var dist_to_target = global_position.distance_to(target.global_position)
+		
+		# If we are close enough to the target (taking into account collision sizes), stop and attack/farm!
+		if dist_to_target <= attack_range + 20.0:
+			velocity = Vector2.ZERO
+			
+			# Check if target is a resource or enemy
+			if target.is_in_group("Resources") and is_worker:
+				set_state(UnitState.FARM)
+			else:
+				set_state(UnitState.ATTACK)
+				
+			if can_attack:
+				perform_action()
+		else:
 			# Move towards target using pathfinding
 			var next_path_pos = nav_agent.get_next_path_position()
 			var direction = global_position.direction_to(next_path_pos)
@@ -86,18 +103,6 @@ func _physics_process(_delta: float) -> void:
 			# Flip Sprite based on movement
 			if sprite and direction.x != 0:
 				sprite.flip_h = direction.x < 0
-		else:
-			# Reached target (within attack range)
-			velocity = Vector2.ZERO
-			
-			# Check if target is a resource or enemy
-			if target.is_in_group("Resources") and is_worker:
-				set_state(UnitState.FARM)
-			else:
-				set_state(UnitState.ATTACK)
-				
-			if can_attack:
-				perform_action()
 	else:
 		velocity = Vector2.ZERO
 		set_state(UnitState.IDLE)
@@ -173,7 +178,18 @@ func take_damage(amount: int) -> void:
 		die()
 
 func die() -> void:
+	if current_state == UnitState.DEATH: return
+	
 	died.emit()
 	if is_enemy:
 		GameManager.add_gold(15) # Reward for killing enemy
+		
+	set_state(UnitState.DEATH)
+	
+	# Disable collisions so units can walk past the corpse
+	var collision = get_node_or_null("CollisionShape2D")
+	if collision: collision.set_deferred("disabled", true)
+	
+	# Wait 2 seconds before despawning
+	await get_tree().create_timer(2.0).timeout
 	queue_free()
