@@ -31,6 +31,7 @@ func toggle_pause() -> void:
 	visible = new_pause_state
 
 func _on_resume_pressed() -> void:
+	$"../UI/PauseButton".visible = true;
 	toggle_pause()
 
 func _on_settings_pressed() -> void:
@@ -40,9 +41,10 @@ func _on_settings_pressed() -> void:
 func _on_quit_pressed() -> void:
 	# ALWAYS unpause before changing scenes, or the new scene will be frozen!
 	get_tree().paused = false
+	visible = false
 	
 	# Transition back to Start Menu using the Autoload
 	if SceneTransition:
-		SceneTransition.change_scene("res://Scenes/UI/StartMenu.tscn")
+		SceneTransition.change_scene("res://Scenes/Systems/StartMenu.tscn")
 	else:
-		get_tree().change_scene_to_file("res://Scenes/UI/StartMenu.tscn")
+		get_tree().change_scene_to_file("res://Scenes/Systems/StartMenu.tscn")

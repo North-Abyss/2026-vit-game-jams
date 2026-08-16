@@ -9,6 +9,14 @@ extends Node2D
 @export var limit_top: int = -2000
 @export var limit_bottom: int = 2000
 
+@onready var pause_menu = $PauseMenu
+@onready var pause_button = $UI/PauseButton
+
+func _ready() -> void:
+	if pause_button and pause_menu:
+		# Connect the pause button to the PauseMenu's toggle function
+		pause_button.pressed.connect(pause_menu.toggle_pause)
+		
 func _process(delta: float) -> void:
 	var direction = Vector2.ZERO
 
@@ -32,3 +40,8 @@ func _process(delta: float) -> void:
 	# Clamp the position so the camera doesn't fly off the map
 	global_position.x = clamp(global_position.x, limit_left, limit_right)
 	global_position.y = clamp(global_position.y, limit_top, limit_bottom)
+
+
+func _on_pause_button_pressed() -> void:
+	$UI/PauseButton.visible = false;
+	
