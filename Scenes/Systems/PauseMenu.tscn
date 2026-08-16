@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cbig2pdp6iagd"]
+
+[ext_resource type="Script" uid="uid://csflivkymtagn" path="res://Scripts/UI/PauseMenu.gd" id="1_d8xpd"]
+[ext_resource type="Texture2D" uid="uid://bkdhlr8tswx2u" path="res://Assets/Tiny Swords (Free Pack)/Tiny Swords (Free Pack)/UI Elements/UI Elements/Wood Table/WoodTable_Slots.png" id="2_8fbmt"]
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=156880406]
+script = ExtResource("1_d8xpd")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=946657135]
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 1088.0
+offset_bottom = 640.0
+texture = ExtResource("2_8fbmt")

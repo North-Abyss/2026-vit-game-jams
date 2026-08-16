@@ -11,8 +11,23 @@ config_version=5
 [application]
 
 config/name="2026 VIT GameJams"
+run/main_scene="uid://dq10hhr885j1b"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GameManager="*res://Scripts/Core/GameManager.gd"
+SceneTransition="*uid://c3mkvv8fr8qq"
+
+[display]
+
+window/size/viewport_width=1024
+window/size/viewport_height=576
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
+mouse_cursor/custom_image="uid://bl5a8h86pusob"
+mouse_cursor/custom_image_hotspot=Vector2(16, 16)
 
 [physics]
 

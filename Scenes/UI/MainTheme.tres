@@ -1,0 +1,43 @@
+[gd_resource type="Theme" format=3 uid="uid://cfmwe8t2lgkih"]
+
+[ext_resource type="Texture2D" uid="uid://dt31sos2ptrrf" path="res://Assets/Tiny Swords (Free Pack)/Tiny Swords (Free Pack)/UI Elements/UI Elements/Buttons/SmallBlueSquareButton_Regular.png" id="1_0oeoe"]
+[ext_resource type="FontFile" uid="uid://djp0axs13a4mx" path="res://Assets/Fonts/BoldPixels.ttf" id="1_t0vq7"]
+[ext_resource type="Texture2D" uid="uid://djgjfj7s0sb3w" path="res://Assets/Tiny Swords (Free Pack)/Tiny Swords (Free Pack)/UI Elements/UI Elements/Buttons/SmallBlueSquareButton_Pressed.png" id="2_t0vq7"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e7u2s"]
+texture = ExtResource("1_0oeoe")
+texture_margin_left = 32.0
+texture_margin_top = 32.0
+texture_margin_right = 32.0
+texture_margin_bottom = 32.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t0vq7"]
+texture = ExtResource("2_t0vq7")
+texture_margin_left = 32.0
+texture_margin_top = 40.0
+texture_margin_right = 32.0
+texture_margin_bottom = 32.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iho8h"]
+texture = ExtResource("1_0oeoe")
+texture_margin_left = 32.0
+texture_margin_top = 32.0
+texture_margin_right = 32.0
+texture_margin_bottom = 42.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6jj00"]
+texture = ExtResource("2_t0vq7")
+texture_margin_left = 32.0
+texture_margin_top = 40.0
+texture_margin_right = 32.0
+texture_margin_bottom = 32.0
+
+[resource]
+default_font = ExtResource("1_t0vq7")
+default_font_size = 20
+Button/font_sizes/font_size = 24
+Button/fonts/font = ExtResource("1_t0vq7")
+Button/styles/hover = SubResource("StyleBoxTexture_e7u2s")
+Button/styles/hover_pressed = SubResource("StyleBoxTexture_t0vq7")
+Button/styles/normal = SubResource("StyleBoxTexture_iho8h")
+Button/styles/pressed = SubResource("StyleBoxTexture_6jj00")

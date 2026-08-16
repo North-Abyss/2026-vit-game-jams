@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dfivc5jgotu85"]
+
+[ext_resource type="Script" uid="uid://lk8qjnifvpid" path="res://Scripts/Core/player.gd" id="1_cvnsp"]
+[ext_resource type="Texture2D" uid="uid://klqcuvr0mm1a" path="res://Assets/Tiny Swords (Free Pack)/Tiny Swords (Free Pack)/Terrain/Tileset/Water Background color.png" id="1_v0iea"]
+
+[node name="Player" type="Node2D" unique_id=1407787772]
+script = ExtResource("1_cvnsp")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=850862037]
+
+[node name="TextureRect" type="TextureRect" parent="Camera2D" unique_id=1482304153]
+z_index = -30
+offset_left = -576.0
+offset_top = -384.0
+offset_right = 576.0
+offset_bottom = 320.0
+texture = ExtResource("1_v0iea")
+
+[node name="Menu" type="CanvasLayer" parent="." unique_id=1948586818]
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1708706453]
