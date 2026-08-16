@@ -35,9 +35,13 @@ texture_margin_bottom = 32.0
 [resource]
 default_font = ExtResource("1_t0vq7")
 default_font_size = 20
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/constants/outline_size = 10
 Button/font_sizes/font_size = 24
 Button/fonts/font = ExtResource("1_t0vq7")
 Button/styles/hover = SubResource("StyleBoxTexture_e7u2s")
 Button/styles/hover_pressed = SubResource("StyleBoxTexture_t0vq7")
 Button/styles/normal = SubResource("StyleBoxTexture_iho8h")
 Button/styles/pressed = SubResource("StyleBoxTexture_6jj00")
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/constants/outline_size = 10

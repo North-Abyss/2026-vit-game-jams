@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://dkei11f0pg30n"]
+
+[ext_resource type="Script" uid="uid://060qqwdxlu06" path="res://Scripts/UI/CardUI.gd" id="1_dgmpe"]
+[ext_resource type="Texture2D" uid="uid://3qkuqu0kn6l4" path="res://Assets/Tiny Swords (Free Pack)/Tiny Swords (Free Pack)/Terrain/Resources/Tools/Tool_03.png" id="2_7cml5"]
+[ext_resource type="PackedScene" uid="uid://ba180w43npai4" path="res://Scenes/Entities/Enemies/goblin/gobline.tscn" id="2_cw8tj"]
+[ext_resource type="Texture2D" uid="uid://bby5vfn60rbh6" path="res://Assets/Tiny Swords (Free Pack)/Tiny Swords (Free Pack)/UI Elements/UI Elements/Banners/Banner_Slots.png" id="3_nwblm"]
+[ext_resource type="FontFile" uid="uid://djp0axs13a4mx" path="res://Assets/Fonts/BoldPixels.ttf" id="4_aibmd"]
+
+[node name="CardUI" type="TextureButton" unique_id=501876650]
+custom_minimum_size = Vector2(64, 64)
+offset_right = 64.0
+offset_bottom = 64.0
+script = ExtResource("1_dgmpe")
+unit_name = "Goblin"
+unit_scene = ExtResource("2_cw8tj")
+
+[node name="bg" type="TextureRect" parent="." unique_id=1656917254]
+texture_filter = 1
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+texture = ExtResource("3_nwblm")
+expand_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=116281004]
+texture_filter = 1
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+texture = ExtResource("2_7cml5")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="." unique_id=1493124077]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("4_aibmd")
+theme_override_font_sizes/font_size = 14
+text = "Knight"
+horizontal_alignment = 1
+vertical_alignment = 2

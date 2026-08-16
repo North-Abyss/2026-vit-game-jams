@@ -1,43 +1,42 @@
 extends Node2D
 class_name DeploymentSystem
 
-# --- "Imports" (Preloads) ---
-# const KNIGHT_SCENE = preload("res://Scenes/Entities/Units/AllyKnight.tscn")
-@export var ally_scene: PackedScene
-
-# --- Magic Numbers & Variables ---
-@export var knight_cost: int = 50
-@export var deployment_cooldown: float = 1.0
-
-var can_deploy: bool = true
-@onready var cooldown_timer: Timer = Timer.new()
-
-# --- Functions ---
+var selected_card: CardUI = null
 
 func _ready() -> void:
-	add_child(cooldown_timer)
-	cooldown_timer.one_shot = true
-	cooldown_timer.wait_time = deployment_cooldown
-	cooldown_timer.timeout.connect(func(): can_deploy = true)
+	# Add this node to a group so cards can find it easily
+	add_to_group("DeploymentSystem")
 
-func _unhandled_input(event: InputEvent) -> void:
-	# Detects mouse clicks on the map.
-	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		if can_deploy:
-			deploy_soldier(get_global_mouse_position(), "Knight")
+func select_card(card: CardUI) -> void:
+	selected_card = card
+	print("Selected Card: ", card.unit_name)
 
-func deploy_soldier(spawn_position: Vector2, type: String) -> void:
-	if not ally_scene:
-		push_warning("DeploymentSystem: ally_scene not assigned!")
-		return
+func _input(event: InputEvent) -> void:
+	# If player left-clicks on the map and has a card selected
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		if selected_card and selected_card.unit_scene:
+			attempt_deployment(get_global_mouse_position())
+
+func attempt_deployment(spawn_pos: Vector2) -> void:
+	var success = false
+	
+	# Check costs based on the card's required resource
+	if selected_card.cost_type == CardUI.ResourceType.GOLD:
+		success = GameManager.spend_gold(selected_card.cost_amount)
+	else:
+		success = GameManager.spend_meat(selected_card.cost_amount)
 		
-	# Checks with GameManager if the player has enough gold.
-	if GameManager.spend_gold(knight_cost):
-		# If yes, instantiates the KNIGHT_SCENE at spawn_position.
-		var inst = ally_scene.instantiate()
-		inst.global_position = spawn_position
-		get_parent().add_child(inst)
+	if success:
+		# Spawn the unit
+		var new_unit = selected_card.unit_scene.instantiate()
+		new_unit.global_position = spawn_pos
 		
-		# Starts the deployment_cooldown timer.
-		can_deploy = false
-		cooldown_timer.start()
+		# Add to the level (assuming DeploymentSystem is a child of MainLevel)
+		get_parent().add_child(new_unit)
+		
+		# Trigger cooldown and deselect
+		selected_card.start_cooldown()
+		selected_card = null
+		print("Deployed successfully!")
+	else:
+		print("Not enough resources to deploy ", selected_card.unit_name)

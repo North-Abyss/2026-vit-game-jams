@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://btw10uknxyad1"]
+
+[ext_resource type="Script" uid="uid://bulkg374n55ci" path="res://Scripts/UI/TopHUD.gd" id="1_waf8p"]
+[ext_resource type="Texture2D" uid="uid://ciw0f1rv8m5cj" path="res://Assets/Tiny Swords (Free Pack)/Tiny Swords (Free Pack)/Terrain/Resources/Gold/Gold Stones/Gold Stone 4.png" id="2_waf8p"]
+[ext_resource type="Texture2D" uid="uid://cyhn81dixk3kb" path="res://Assets/Tiny Swords (Free Pack)/Tiny Swords (Free Pack)/Terrain/Resources/Meat/Meat Resource/Meat Resource.png" id="3_mvsed"]
+[ext_resource type="Theme" uid="uid://cfmwe8t2lgkih" path="res://Scenes/UI/MainTheme.tres" id="3_qwfri"]
+
+[node name="TopHUD" type="Control" unique_id=1235782483]
+layout_mode = 3
+offset_right = 960.0
+offset_bottom = 128.0
+script = ExtResource("1_waf8p")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=2121797981]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="GoldContainer" type="HBoxContainer" parent="HBoxContainer" unique_id=986150243]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/GoldContainer" unique_id=1808006605]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_waf8p")
+expand_mode = 1
+
+[node name="GoldLabel" type="Label" parent="HBoxContainer/GoldContainer" unique_id=263424411]
+layout_mode = 2
+theme = ExtResource("3_qwfri")
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MeatContainer" type="HBoxContainer" parent="HBoxContainer" unique_id=1748232910]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/MeatContainer" unique_id=1186628868]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture = ExtResource("3_mvsed")
+expand_mode = 1
+
+[node name="MeatLabel" type="Label" parent="HBoxContainer/MeatContainer" unique_id=1154393063]
+layout_mode = 2
+theme = ExtResource("3_qwfri")
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Spacing" type="Label" parent="HBoxContainer" unique_id=1062110824]
+layout_mode = 2
+theme = ExtResource("3_qwfri")
+text = "   "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WaveLabel" type="Label" parent="HBoxContainer" unique_id=1039944413]
+layout_mode = 2
+theme = ExtResource("3_qwfri")
+text = " Waves : 0 "
+horizontal_alignment = 1
+vertical_alignment = 1

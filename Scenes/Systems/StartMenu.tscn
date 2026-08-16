@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dvxd024lcmmbn" path="res://Assets/Tiny Swords (Free Pack)/Tiny Swords (Free Pack)/Buildings/Yellow Buildings/Tower.png" id="6_rvv73"]
 [ext_resource type="Texture2D" uid="uid://barwbeg2qt1vw" path="res://Assets/Tiny Swords (Free Pack)/Tiny Swords (Free Pack)/Units/Blue Units/Pawn/Pawn_Idle Axe.png" id="7_v6ctv"]
 [ext_resource type="Theme" uid="uid://cfmwe8t2lgkih" path="res://Scenes/UI/MainTheme.tres" id="9_khejy"]
+[ext_resource type="FontFile" uid="uid://djp0axs13a4mx" path="res://Assets/Fonts/BoldPixels.ttf" id="10_o0rep"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5hmtp"]
 texture = ExtResource("3_rvv73")
@@ -445,13 +446,15 @@ animations = [{
 }]
 
 [node name="StartMenu" type="Node2D" unique_id=1408612100]
+texture_filter = 1
 script = ExtResource("1_6emdb")
+next_scene_path = null
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1452290438]
 z_index = -30
 offset_left = -64.0
 offset_top = -64.0
-offset_right = 1088.0
+offset_right = 1152.0
 offset_bottom = 640.0
 texture = ExtResource("1_yf4c2")
 
@@ -515,3 +518,16 @@ layout_mode = 2
 theme = ExtResource("9_khejy")
 text = "EXIT
 "
+
+[node name="Label" type="Label" parent="." unique_id=1263168484]
+offset_left = 320.0
+offset_top = 21.0
+offset_right = 704.0
+offset_bottom = 85.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("10_o0rep")
+theme_override_font_sizes/font_size = 46
+text = "Where the 4 Meets"
+horizontal_alignment = 1
+vertical_alignment = 1

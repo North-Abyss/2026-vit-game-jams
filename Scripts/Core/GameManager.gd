@@ -3,14 +3,17 @@ extends Node
 
 # --- Magic Numbers & Variables ---
 var current_gold: int = 150
+var current_meat: int = 50
 var current_wave: int = 1
 
 const MAX_GOLD: int = 9999
+const MAX_MEAT: int = 9999
 const BASE_HEALTH: int = 100
 var current_base_health: int = BASE_HEALTH
 
 # --- Signals ---
 signal gold_changed(new_amount: int)
+signal meat_changed(new_amount: int)
 signal base_health_changed(new_amount: int)
 signal wave_changed(new_wave: int)
 signal game_over()
@@ -20,6 +23,7 @@ signal game_over()
 func _ready() -> void:
 	# Initialize the UI with starting values
 	gold_changed.emit(current_gold)
+	meat_changed.emit(current_meat)
 	base_health_changed.emit(current_base_health)
 	wave_changed.emit(current_wave)
 
@@ -30,12 +34,21 @@ func add_gold(amount: int) -> void:
 	gold_changed.emit(current_gold)
 
 func spend_gold(amount: int) -> bool:
-	# Deducts gold when deploying a soldier.
 	if current_gold >= amount:
 		current_gold -= amount
 		gold_changed.emit(current_gold)
 		return true
-	# Returns true if successful, false if insufficient funds.
+	return false
+
+func add_meat(amount: int) -> void:
+	current_meat = clampi(current_meat + amount, 0, MAX_MEAT)
+	meat_changed.emit(current_meat)
+
+func spend_meat(amount: int) -> bool:
+	if current_meat >= amount:
+		current_meat -= amount
+		meat_changed.emit(current_meat)
+		return true
 	return false
 
 func take_base_damage(amount: int) -> void:
