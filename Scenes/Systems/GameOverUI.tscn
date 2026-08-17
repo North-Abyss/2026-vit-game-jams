@@ -16,9 +16,9 @@ script = ExtResource("1_2vp3a")
 
 [node name="Panel" type="Panel" parent="." unique_id=1149676301]
 layout_mode = 0
-offset_left = -64.0
+offset_left = -128.0
 offset_top = -64.0
-offset_right = 1088.0
+offset_right = 1152.0
 offset_bottom = 640.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=990748144]
@@ -28,9 +28,9 @@ anchor_left = 0.056
 anchor_top = 0.091000006
 anchor_right = 0.056
 anchor_bottom = 0.091000006
-offset_left = 191.488
+offset_left = 248.32
 offset_top = 63.935997
-offset_right = 831.488
+offset_right = 888.32
 offset_bottom = 511.936
 alignment = 1
 

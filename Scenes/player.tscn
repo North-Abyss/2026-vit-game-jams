@@ -6,7 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://cbig2pdp6iagd" path="res://Scenes/UI/PauseMenu.tscn" id="3_vgqql"]
 [ext_resource type="PackedScene" uid="uid://jnbx5cfqk77u" path="res://Scenes/Systems/GameOverUI.tscn" id="4_3smsa"]
 [ext_resource type="PackedScene" uid="uid://dkei11f0pg30n" path="res://Scenes/UI/CardUI.tscn" id="5_fkybt"]
+[ext_resource type="Texture2D" uid="uid://cyhn81dixk3kb" path="res://Assets/Tiny Swords (Free Pack)/Tiny Swords (Free Pack)/Terrain/Resources/Meat/Meat Resource/Meat Resource.png" id="6_f1ek2"]
 [ext_resource type="PackedScene" uid="uid://btw10uknxyad1" path="res://Scenes/UI/TopHUD.tscn" id="6_x3wgy"]
+[ext_resource type="Texture2D" uid="uid://ciw0f1rv8m5cj" path="res://Assets/Tiny Swords (Free Pack)/Tiny Swords (Free Pack)/Terrain/Resources/Gold/Gold Stones/Gold Stone 4.png" id="7_tx1dd"]
 
 [node name="Player" type="Node2D" unique_id=1407787772]
 script = ExtResource("1_cvnsp")
@@ -47,9 +49,21 @@ layout_mode = 2
 [node name="CardUI" parent="UI/ScrollContainer/HBoxContainer" unique_id=501876650 instance=ExtResource("5_fkybt")]
 layout_mode = 2
 
+[node name="Meat" type="TextureRect" parent="UI/ScrollContainer/HBoxContainer" unique_id=689798608]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("6_f1ek2")
+expand_mode = 1
+
 [node name="CardUI2" parent="UI/ScrollContainer/HBoxContainer" unique_id=618627905 instance=ExtResource("5_fkybt")]
 layout_mode = 2
 cost_type = 0
+
+[node name="Gold" type="TextureRect" parent="UI/ScrollContainer/HBoxContainer" unique_id=517080824]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("7_tx1dd")
+expand_mode = 1
 
 [node name="TopHUD" parent="UI" unique_id=1235782483 instance=ExtResource("6_x3wgy")]
 anchors_preset = 0

@@ -35,8 +35,10 @@ func _on_settings_pressed() -> void:
 	print("Settings menu coming soon!")
 
 func _on_credits_pressed() -> void:
-	# Temp function for now
-	print("Credits coming soon!")
+	if SceneTransition:
+		SceneTransition.change_scene("res://Scenes/Systems/Credits.tscn")
+	else:
+		get_tree().change_scene_to_file("res://Scenes/Systems/Credits.tscn")
 
 func _on_quit_pressed() -> void:
 	print("Quitting Game...")

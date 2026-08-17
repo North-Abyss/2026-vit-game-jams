@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://mktpwv0aoxu"]
+
+[ext_resource type="Script" uid="uid://bnc162ob48rly" path="res://Scripts/Entities/Buildings/GoldMine.gd" id="1_i463l"]
+[ext_resource type="Texture2D" uid="uid://c2ulltjm7pqgq" path="res://Assets/Tiny Swords (Free Pack)/Tiny Swords (Free Pack)/Buildings/Blue Buildings/House1.png" id="2_i463l"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vc4ue"]
+radius = 49.0
+height = 126.0
+
+[node name="Buildings" type="StaticBody2D" unique_id=1872806284 groups=["Resources"]]
+script = ExtResource("1_i463l")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1414661895]
+texture_filter = 1
+texture = ExtResource("2_i463l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=857753326 groups=["Resources"]]
+shape = SubResource("CapsuleShape2D_vc4ue")

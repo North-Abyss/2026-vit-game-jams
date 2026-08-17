@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://barwbeg2qt1vw" path="res://Assets/Tiny Swords (Free Pack)/Tiny Swords (Free Pack)/Units/Blue Units/Pawn/Pawn_Idle Axe.png" id="7_v6ctv"]
 [ext_resource type="Theme" uid="uid://cfmwe8t2lgkih" path="res://Scenes/UI/MainTheme.tres" id="9_khejy"]
 [ext_resource type="FontFile" uid="uid://djp0axs13a4mx" path="res://Assets/Fonts/BoldPixels.ttf" id="10_o0rep"]
+[ext_resource type="Texture2D" uid="uid://d2vm4bvc10iig" path="res://Assets/withoutbg.png" id="10_qio65"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5hmtp"]
 texture = ExtResource("3_rvv73")
@@ -60,7 +61,7 @@ tile_size = Vector2i(64, 64)
 sources/1 = SubResource("TileSetAtlasSource_5hmtp")
 sources/4 = SubResource("TileSetAtlasSource_ovsph")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_spc8a"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v6ctv"]
 texture = ExtResource("5_o0rep")
 texture_region_size = Vector2i(64, 64)
 0:4/0 = 0
@@ -318,7 +319,7 @@ terrain_set_0/terrain_2/name = "cliffs"
 terrain_set_0/terrain_2/color = Color(0.30588236, 0.5294118, 0.6392157, 1)
 terrain_set_0/terrain_3/name = "cliffs2"
 terrain_set_0/terrain_3/color = Color(0.3764706, 0.5019608, 0.972549, 1)
-sources/1 = SubResource("TileSetAtlasSource_spc8a")
+sources/1 = SubResource("TileSetAtlasSource_v6ctv")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w8frq"]
 atlas = ExtResource("6_qio65")
@@ -448,7 +449,6 @@ animations = [{
 [node name="StartMenu" type="Node2D" unique_id=1408612100]
 texture_filter = 1
 script = ExtResource("1_6emdb")
-next_scene_path = null
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1452290438]
 z_index = -30
@@ -468,7 +468,7 @@ position = Vector2(-64, -64)
 tile_map_data = PackedByteArray("AAALAAUAAQAFAAAAAAAMAAUAAQAGAAAAAAAMAAYAAQAGAAEAAAANAAYAAQAGAAEAAAAOAAYAAQAGAAEAAAAPAAYAAQAGAAEAAAAPAAcAAQAGAAEAAAAQAAcAAQAGAAEAAAARAAgAAQAHAAIAAAARAAcAAQAHAAEAAAAQAAYAAQAGAAEAAAARAAYAAQAHAAEAAAARAAUAAQAHAAAAAAAQAAgAAQAGAAIAAAAQAAUAAQAGAAAAAAAPAAgAAQAGAAIAAAAPAAUAAQAGAAAAAAAOAAgAAQAGAAIAAAAOAAcAAQAGAAEAAAAOAAUAAQAGAAAAAAANAAgAAQAGAAIAAAANAAcAAQAGAAEAAAANAAUAAQAGAAAAAAAMAAgAAQAGAAIAAAAMAAcAAQAGAAEAAAALAAcAAQAGAAEAAAALAAYAAQAGAAEAAAAKAAcAAQAGAAIAAAAKAAYAAQAGAAAAAAAJAAcAAQAFAAIAAAAJAAYAAQAFAAAAAAAKAAgAAQAGAAQAAAAJAAgAAQAFAAQAAAARAAkAAQAHAAUAAAAQAAkAAQAGAAUAAAAPAAkAAQAGAAUAAAAOAAkAAQAGAAUAAAANAAkAAQAGAAUAAAAMAAkAAQAGAAUAAAALAAkAAQAFAAUAAAALAAgAAQAFAAIAAAAOAAMAAQABAAIAAAAOAAIAAQABAAAAAAANAAMAAQAAAAIAAAANAAIAAQAAAAAAAAAPAAMAAQACAAIAAAAPAAIAAQACAAAAAAA=")
 tile_set = SubResource("TileSet_v5mfl")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=716392562]
+[node name="Tower" type="Sprite2D" parent="." unique_id=716392562]
 position = Vector2(848, 96)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("6_rvv73")
@@ -519,7 +519,13 @@ theme = ExtResource("9_khejy")
 text = "EXIT
 "
 
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=645593312]
+position = Vector2(608, 128)
+scale = Vector2(0.25, 0.25000003)
+texture = ExtResource("10_qio65")
+
 [node name="Title" type="Label" parent="." unique_id=1263168484]
+visible = false
 offset_left = 320.0
 offset_top = 21.0
 offset_right = 704.0

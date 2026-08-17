@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://yyhekswcvf2b"]
 
 [ext_resource type="Script" uid="uid://bnc162ob48rly" path="res://Scripts/Entities/Buildings/GoldMine.gd" id="1_8b5un"]
-[ext_resource type="Texture2D" uid="uid://d1uxevylnvtlb" path="res://Assets/Tiny Swords (Free Pack)/Tiny Swords (Free Pack)/Terrain/Resources/Gold/Gold Stones/Gold Stone 6.png" id="2_lrm6v"]
+[ext_resource type="Texture2D" uid="uid://5ihk1c8p2wm4" path="res://Assets/Tiny Swords (Free Pack)/Tiny Swords (Free Pack)/Buildings/GoldMine_Active.png" id="2_8b5un"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m31ly"]
 radius = 40.0
@@ -10,7 +10,9 @@ radius = 40.0
 script = ExtResource("1_8b5un")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1414661895]
-texture = ExtResource("2_lrm6v")
+texture_filter = 1
+scale = Vector2(0.6666667, 1)
+texture = ExtResource("2_8b5un")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=857753326]
 shape = SubResource("CircleShape2D_m31ly")
