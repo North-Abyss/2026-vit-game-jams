@@ -12,6 +12,10 @@ var can_scroll: bool = false
 var characters_moving: bool = true # Controls if the whole group is allowed to walk
 
 func _ready() -> void:
+	var back_btn = find_child("BackButton", true, false) as Button
+	if back_btn:
+		back_btn.pressed.connect(_on_back_button_pressed)
+		
 	# Start the title logo animation immediately using the "team" animation
 	if team_node:
 		team_node.play("team")
