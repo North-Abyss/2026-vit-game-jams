@@ -1,6 +1,15 @@
-# 2026 VIT Game Jam - "Cycles of War"
+# REVORA - Wheel of war
 
 A 2D Wave Defense game created with the Godot Engine 4.x for the 2026 VIT Game Jam. 
+
+## 🎮 Play the Game Online
+**Play directly in your browser:** [https://north-abyss.github.io/2026-vit-game-jams/](https://north-abyss.github.io/2026-vit-game-jams/)
+
+## 🕹️ How to Play
+- **Movement:** Use `W` `A` `S` `D` or the `Arrow Keys` to move the camera around the map.
+- **Deploying Troops:** Click the troop cards at the bottom of the screen to select a unit, then click anywhere on the map to summon them!
+- **Goal:** Defend your base! Troops will automatically hunt down enemies, gather resources, and fight.
+
 
 ## Theme Integration: "Wheels Go Round"
 - **Cycles of War:** The game is driven by endless "cycles" or waves of enemies that grow stronger each rotation.

@@ -452,10 +452,10 @@ script = ExtResource("1_6emdb")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1452290438]
 z_index = -30
-offset_left = -64.0
-offset_top = -64.0
-offset_right = 1152.0
-offset_bottom = 640.0
+offset_left = -128.0
+offset_top = -128.0
+offset_right = 1216.0
+offset_bottom = 704.0
 texture = ExtResource("1_yf4c2")
 
 [node name="waterform" type="TileMapLayer" parent="." unique_id=1093237469]

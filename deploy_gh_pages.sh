@@ -21,9 +21,15 @@ if [ ! -f "coi-serviceworker.js" ]; then
     wget -q https://raw.githubusercontent.com/gzuidhof/coi-serviceworker/master/coi-serviceworker.js
 fi
 
-if ! grep -q "coi-serviceworker.js" REVORA.html; then
-    echo "🔧 Injecting coi-serviceworker into REVORA.html..."
-    sed -i 's|</head>|<script src="coi-serviceworker.js"></script></head>|g' REVORA.html
+# GitHub Pages expects 'index.html', but Godot exported 'REVORA.html'.
+# Let's rename it!
+if [ -f "REVORA.html" ]; then
+    mv REVORA.html index.html
+fi
+
+if ! grep -q "coi-serviceworker.js" index.html; then
+    echo "🔧 Injecting coi-serviceworker into index.html..."
+    sed -i 's|</head>|<script src="coi-serviceworker.js"></script></head>|g' index.html
 fi
 # ------------------------------
 

@@ -768,9 +768,15 @@ metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=55581775]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -704.0
+offset_top = -480.0
+offset_right = 704.0
+offset_bottom = 480.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_0o75s")
@@ -841,8 +847,8 @@ progress = 56.799603
 rotates = false
 
 [node name="team" type="AnimatedSprite2D" parent="." unique_id=322070425]
-position = Vector2(528, 79.00001)
-scale = Vector2(0.5872093, 0.46614584)
+position = Vector2(512, 96.00001)
+scale = Vector2(0.51162785, 0.5)
 sprite_frames = SubResource("SpriteFrames_x1cd7")
 animation = &"team"
 autoplay = "team"

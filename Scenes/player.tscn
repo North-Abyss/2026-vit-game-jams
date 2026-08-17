@@ -17,10 +17,10 @@ script = ExtResource("1_cvnsp")
 
 [node name="TextureRect" type="TextureRect" parent="Camera2D" unique_id=1482304153]
 z_index = -30
-offset_left = -640.0
-offset_top = -448.0
-offset_right = 640.0
-offset_bottom = 384.0
+offset_left = -768.0
+offset_top = -512.0
+offset_right = 768.0
+offset_bottom = 448.0
 texture = ExtResource("1_v0iea")
 
 [node name="PauseMenu" parent="." unique_id=156880406 instance=ExtResource("3_vgqql")]
@@ -30,18 +30,30 @@ visible = false
 
 [node name="PauseButton" type="Button" parent="UI" unique_id=330096250]
 texture_filter = 1
-offset_left = 960.0
-offset_right = 1032.0
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -72.0
 offset_bottom = 72.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+size_flags_vertical = 0
 icon = ExtResource("3_6t5aa")
 flat = true
 icon_alignment = 1
 
 [node name="ScrollContainer" type="ScrollContainer" parent="UI" unique_id=171828143]
-offset_left = 64.0
-offset_top = 512.0
-offset_right = 960.0
-offset_bottom = 576.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -448.0
+offset_top = -92.0
+offset_right = 448.0
+offset_bottom = -28.0
+grow_horizontal = 2
+grow_vertical = 0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI/ScrollContainer" unique_id=954732768]
 layout_mode = 2
