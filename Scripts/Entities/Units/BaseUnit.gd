@@ -16,6 +16,7 @@ var current_state: UnitState = UnitState.IDLE
 @export var attack_damage: int = 20
 @export var attack_range: float = 60.0
 @export var attack_cooldown: float = 1.2
+@export var attack_sound: AudioStream
 
 var current_health: int
 var target: Node2D = null
@@ -108,14 +109,21 @@ func _physics_process(_delta: float) -> void:
 		set_state(UnitState.IDLE)
 
 func find_target() -> void:
-	# Clash of Clans Prioritization
-	var potential_targets = detection_zone.get_overlapping_bodies()
+	# Clash of Clans Prioritization - Global Map Targeting
+	var potential_targets = []
+	if is_enemy:
+		potential_targets.append_array(get_tree().get_nodes_in_group("Allies"))
+		potential_targets.append_array(get_tree().get_nodes_in_group("Buildings"))
+	else:
+		potential_targets.append_array(get_tree().get_nodes_in_group("Enemies"))
+		if is_worker:
+			potential_targets.append_array(get_tree().get_nodes_in_group("Resources"))
 	var closest_dist = INF
 	var best_target = null
 	
 	# We evaluate targets based on priority logic
 	for p_target in potential_targets:
-		if p_target == self: continue
+		if p_target == self or not is_instance_valid(p_target) or p_target.is_queued_for_deletion(): continue
 		
 		var dist = global_position.distance_to(p_target.global_position)
 		var is_valid = false
@@ -145,6 +153,7 @@ func perform_action() -> void:
 	if current_state == UnitState.ATTACK:
 		if target.has_method("take_damage"):
 			target.take_damage(attack_damage)
+			if AudioManager and AudioManager.has_method("play_attack"): AudioManager.play_attack(attack_sound)
 	elif current_state == UnitState.FARM:
 		if target.has_method("harvest"):
 			target.harvest(attack_damage) # E.g., mining gold
@@ -161,16 +170,23 @@ func set_state(new_state: UnitState) -> void:
 	match current_state:
 		UnitState.IDLE:
 			if sprite.sprite_frames.has_animation("Idle"): sprite.play("Idle")
+			elif sprite.sprite_frames.has_animation("IDLE"): sprite.play("IDLE")
 		UnitState.RUN:
 			if sprite.sprite_frames.has_animation("walk-left"): sprite.play("walk-left")
 			elif sprite.sprite_frames.has_animation("Run"): sprite.play("Run")
+			elif sprite.sprite_frames.has_animation("RUN"): sprite.play("RUN")
 		UnitState.ATTACK:
 			if sprite.sprite_frames.has_animation("attack-left"): sprite.play("attack-left")
 			elif sprite.sprite_frames.has_animation("Attack1"): sprite.play("Attack1")
+			elif sprite.sprite_frames.has_animation("ATTACK"): sprite.play("ATTACK")
 		UnitState.FARM:
 			if sprite.sprite_frames.has_animation("Mine"): sprite.play("Mine")
 			elif sprite.sprite_frames.has_animation("Chop"): sprite.play("Chop")
 			elif sprite.sprite_frames.has_animation("attack-left"): sprite.play("attack-left")
+			elif sprite.sprite_frames.has_animation("ATTACK"): sprite.play("ATTACK")
+		UnitState.DEATH:
+			sprite.stop()
+			sprite.modulate = Color(0.4, 0.4, 0.4) # Darken the corpse
 
 func take_damage(amount: int) -> void:
 	current_health -= amount
@@ -190,6 +206,5 @@ func die() -> void:
 	var collision = get_node_or_null("CollisionShape2D")
 	if collision: collision.set_deferred("disabled", true)
 	
-	# Wait 2 seconds before despawning
-	await get_tree().create_timer(2.0).timeout
+	# Remove the corpse instantly
 	queue_free()

@@ -186,7 +186,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_gst1r")
 }],
-"loop": false,
+"loop": true,
 "name": &"ATTACK",
 "speed": 10.0
 }, {
@@ -299,7 +299,7 @@ is_worker = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1806644593]
 sprite_frames = SubResource("SpriteFrames_wd5ij")
-animation = &"death"
+animation = &"hurt"
 autoplay = "IDLE"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1413409389]

@@ -2,6 +2,7 @@ extends Node2D
 class_name EnemySpawner
 
 @export var enemy_scene: PackedScene
+@export var alarm_sound: AudioStream
 @export var spawn_interval: float = 20.0 # Time between waves
 @export var enemies_per_wave: int = 3
 @export var spawn_radius: float = 1500.0 # Distance from center of map
@@ -42,7 +43,7 @@ func _on_wave_timer_timeout() -> void:
 	# Show warning and play alarm!
 	warning_label.visible = true
 	if AudioManager and AudioManager.has_method("play_alarm"): 
-		AudioManager.play_alarm()
+		AudioManager.play_alarm(alarm_sound)
 	
 	# Wait 3 seconds for dramatic effect
 	await get_tree().create_timer(3.0).timeout

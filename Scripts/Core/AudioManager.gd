@@ -26,11 +26,12 @@ func play_bgm(stream: AudioStream) -> void:
 		bgm_player.stream = stream
 		bgm_player.play()
 
-func play_alarm() -> void:
-	# Add your .wav or .ogg stream to the player in the editor later
+func play_alarm(stream: AudioStream = null) -> void:
+	if stream: alarm_player.stream = stream
 	if alarm_player.stream:
 		alarm_player.play()
 
-func play_attack() -> void:
+func play_attack(stream: AudioStream = null) -> void:
+	if stream: attack_player.stream = stream
 	if attack_player.stream:
 		attack_player.play()

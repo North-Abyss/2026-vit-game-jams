@@ -1,18 +1,25 @@
 extends Control
 class_name GameOverUI
 
-@onready var score_label: Label = $Panel/VBoxContainer/ScoreLabel
-@onready var restart_button: Button = $Panel/VBoxContainer/RestartButton
+var score_label: Label
+var restart_button: Button
+var quit_button: Button
 
 func _ready() -> void:
 	# Hide by default and ensure it still runs when the tree is paused!
 	visible = false
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	
+	score_label = find_child("ScoreLabel", true, false) as Label
+	restart_button = find_child("RestartButton", true, false) as Button
+	quit_button = find_child("Quit", true, false) as Button
+	
 	GameManager.game_over.connect(_on_game_over)
 	
 	if restart_button:
 		restart_button.pressed.connect(_on_restart_pressed)
+	if quit_button:
+		quit_button.pressed.connect(func(): get_tree().quit())
 
 func _on_game_over(final_score: int) -> void:
 	visible = true

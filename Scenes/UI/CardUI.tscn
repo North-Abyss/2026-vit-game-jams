@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://dkei11f0pg30n"]
 
 [ext_resource type="Script" uid="uid://060qqwdxlu06" path="res://Scripts/UI/CardUI.gd" id="1_dgmpe"]
-[ext_resource type="Texture2D" uid="uid://3qkuqu0kn6l4" path="res://Assets/Tiny Swords (Free Pack)/Tiny Swords (Free Pack)/Terrain/Resources/Tools/Tool_03.png" id="2_7cml5"]
 [ext_resource type="PackedScene" uid="uid://cq45d0rnwgwce" path="res://Scenes/Entities/Units/Pawn/pawn.tscn" id="2_nwblm"]
 [ext_resource type="Texture2D" uid="uid://bby5vfn60rbh6" path="res://Assets/Tiny Swords (Free Pack)/Tiny Swords (Free Pack)/UI Elements/UI Elements/Banners/Banner_Slots.png" id="3_nwblm"]
 [ext_resource type="FontFile" uid="uid://djp0axs13a4mx" path="res://Assets/Fonts/BoldPixels.ttf" id="4_aibmd"]
+[ext_resource type="Texture2D" uid="uid://bd0k4ymshl3jh" path="res://Assets/Tiny Swords (Free Pack)/Tiny Swords (Free Pack)/Terrain/Resources/Tools/Tool_02.png" id="4_nwblm"]
 
 [node name="CardUI" type="TextureButton" unique_id=501876650]
 custom_minimum_size = Vector2(64, 64)
@@ -27,7 +27,7 @@ texture_filter = 1
 layout_mode = 0
 offset_right = 64.0
 offset_bottom = 64.0
-texture = ExtResource("2_7cml5")
+texture = ExtResource("4_nwblm")
 stretch_mode = 3
 
 [node name="Label" type="Label" parent="." unique_id=1493124077]

@@ -10,10 +10,10 @@ config_version=5
 
 [application]
 
-config/name="2026 VIT GameJams"
+config/name="REVORA - Wheel of war"
 run/main_scene="uid://dq10hhr885j1b"
 config/features=PackedStringArray("4.6", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="uid://ddsyern6f364x"
 
 [autoload]
 
