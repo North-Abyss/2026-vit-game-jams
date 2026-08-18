@@ -84,7 +84,5 @@ offset_bottom = 128.0
 
 [node name="GameOverUI" parent="UI" unique_id=1281926004 instance=ExtResource("4_3smsa")]
 visible = false
-offset_top = 9.0
-offset_bottom = 9.0
 
 [connection signal="pressed" from="UI/PauseButton" to="." method="_on_pause_button_pressed"]

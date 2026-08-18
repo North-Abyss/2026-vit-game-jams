@@ -30,6 +30,12 @@ window/stretch/aspect="expand"
 mouse_cursor/custom_image="uid://bl5a8h86pusob"
 mouse_cursor/custom_image_hotspot=Vector2(16, 16)
 
+[file_customization]
+
+folder_colors={
+"res://Releases/": "gray"
+}
+
 [global_group]
 
 Resources=""
@@ -74,6 +80,11 @@ ui_down={
 ]
 }
 
+[navigation]
+
+2d/warnings/navmesh_edge_merge_errors=false
+2d/merge_rasterizer_cell_scale=0.001
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
@@ -83,8 +94,3 @@ ui_down={
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
-
-[navigation]
-
-2d/warnings/navmesh_edge_merge_errors=false
-2d/merge_rasterizer_cell_scale=0.001
